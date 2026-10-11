@@ -15,13 +15,13 @@
 #     f.write("\n test, World!") #writing a line to the file 'f' - overwrites- if there is something on there already it will replaced
 #     f.write("\n HHHH") #writing a newline character to the file 'f'
 
-from mycomputations import get_average, get_sum
+from mycomputations import get_average, get_sum        #impporting the functions get_average and get_sum from the mycomputations.py file
 
-listofnumerals = []
+listofnumerals = []  #creates an empy list to store the numbers from the file
 
-with open ('listofnumbers.txt','r') as f:
-    for line in f:
-        listofnumerals.append(int(line))
-        print(listofnumerals)
-print(get_average(listofnumerals[0], listofnumerals[1], listofnumerals[2]))
-print(get_sum(listofnumerals[0], listofnumerals[1]))
+with open ('listofnumbers.txt','r') as f:  #this is with module built in function open - takes parameter file name and mode. r is read 
+    for line in f:                          #iterates over each line in the file 'f'
+        listofnumerals.append(int(line))    #appends each line as an integer to the list
+        print(listofnumerals)               # each line is printed as it is appended to the list
+print(get_average(listofnumerals[0], listofnumerals[1], listofnumerals[2])) #importing the function get_average from the mycomputations.py file and passing the first three numbers in the list to it
+print(get_sum(listofnumerals[0], listofnumerals[1]))                        #importing the function get_sum from the mycomputations.py file and passing the first two numbers in the list to it
