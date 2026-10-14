@@ -1,26 +1,44 @@
-class Robot:                                                    #this is a class called Robot
-    def __init__(self, name, age, internaltemperature):         #this is a constructor method that initializes the attributes of the class Robot
-        self.name = name                                        #this is an instance variable that stores the name of the robot
-        self.age = age                                          #this is an instance variable that stores the age of the robot   
-        self.internaltemperature = 0.0                          #this is an instance variable that stores the internal temperature of the robot
+from robot import Robot
+from roboticarms import RoboticArm
+from roboticarms import PackagingSolution
 
-    def greet(self):                                                               #method that prints a greeting message with the robot's name and age                 
-        print(f"Hello, my name is {self.name} and I am {self.age} years old.")      #f-string is used to format the string with the robot's name and age
 
-    def init_hardware(self):                                                        #method that initializes the hardware of the robot and prints a message indicating that the hardware is being initialized
-        print("Initializing hardware...")                           
+#Creating instances of the classes
 
-    def print_info(self):                                                           #method that prints the robot's information by calling the greet and init_hardware methods, and printing the internal temperature    
-        self.greet()                                                                
-        self.init_hardware()                                                            
-        print(f"Internal temperature: {self.internaltemperature}")
-        print("End of robot information.")
+my_robot = Robot("R2D2", 30, 5 , 300) #myrobot_instance
+my_robot2 = Robot("C3PO", 25, 3) #myrobot2_instance
+my_robot3 = RoboticArm("FULL ROBOT", 10, True, "2cm") #myrobotbotharms_instance
+robotic_arm_right = RoboticArm("ArmRightBot", 10, False, "2cm") #myrobotrightarm_instance
+robotic_arm_left = RoboticArm("ArmLeftBot", 10, True, "2cm") #myrobotleftarm_instance
+my_packaging_solution = PackagingSolution(robotic_arm_left, robotic_arm_right)
 
-# my_robot = Robot("R2D2", 30, 5)
 
-# my_robot2 = Robot("C3PO", 25, 3)
 
-# my_robot.print_info()
+# #Robot Invocations
+
+# print("Robot 1 and 2 Invocations:")
+my_robot.print_info()
+my_robot2.print_info()
+
 # my_robot2.print_info()    
 
-Robot("R2D2", 30, 5).greet()            #this creates an instance of the Robot class with the name "R2D2", age 30, and internal temperature 5, and calls the greet method to print a greeting message - different methods can be called on the same instance of the class, and each method can access the instance variables of the class.
+#Robotic Arm Invocations
+print("Robot 3 and Robotic Arm Invocations:")
+# my_robot3.print_info()
+robotic_arm_right.print_info()
+robotic_arm_left.print_info()
+my_packaging_solution.package(1, 2, 3, 4, 5, 6)
+# arm1 = RoboticArm("Arm1", 1, 36.5, 100)
+# arm2 = RoboticArm("Arm2", 2, 37.0, 200)no
+
+# arm1.print_info()
+# arm2.print_info()
+
+    
+
+# #Robotic Arm Invocations
+# print("Robotic Arm Invocations:")
+# my_robot3.print_info()
+# my_robot3.pick_object(1, "hello")
+# my_robot3.place_object(3, 4)
+
